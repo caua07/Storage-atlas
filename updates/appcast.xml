@@ -1,8 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><!-- sparkle-sign-warning:
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
 --><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
-  <channel><title>Storage Atlas Updates</title><link>https://github.com/caua07/Storage-atlas/releases</link><description>Signed Storage Atlas releases for macOS.</description><language>en</language></channel>
+    <channel>
+        <title>Storage Atlas</title>
+        <item>
+            <title>0.5.0</title>
+            <pubDate>Fri, 30 Oct 2026 17:48:45 -0300</pubDate>
+            <sparkle:version>20</sparkle:version>
+            <sparkle:shortVersionString>0.5.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/caua07/Storage-atlas/releases/download/v0.5.0/StorageAtlas-macOS-arm64.zip" length="2173099" type="application/octet-stream" sparkle:edSignature="k/aikw6L378VoB4bUwxrBDFzS+xWIBpX2sftR21A2cx3iEI571jFh1xQ8qovnEfIaBsiD6ZTGQ374IS6Mt2ACA=="></enclosure>
+        </item>
+    </channel>
 </rss><!-- sparkle-signatures:
-edSignature: m5yYuh2boOLhV7KC6S78hcfHqypSTEPj3mrV90blMFBI56bPq5q2lt2pJQXT0ywfMvTbXJtrrHNRjSGOQT66AA==
-length: 594
+edSignature: CoMVhhj83dwmIGqyaXD21WnPl2GCNLmI+bcJUtPM8yPaPcy0e50RpjfGczmaB24mt9+Ic92qMQq1UgxKM65hBQ==
+length: 1139
 -->
