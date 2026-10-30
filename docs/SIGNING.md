@@ -34,9 +34,13 @@ This exception only permits a development migration from an ad-hoc requirement. 
 
 After that initial migration, ordinary `./scripts/build-app.sh release` rebuilds should retain access. Verify with **Coverage → Check read access again** in the actual app before rescanning. Never weaken the requirement to an identifier-only rule or alter TCC databases.
 
-## Public distribution
+## Community downloads
 
-Distributed apps must use a consistently configured **Developer ID Application** identity:
+Current GitHub releases use a persistent self-signed community identity, separate from local development. No paid Apple membership is required. The public certificate is committed; private keys stay in Keychain. First launch may require macOS approval. Sparkle independently verifies signed feeds and update archives. See [RELEASING.md](RELEASING.md).
+
+## Optional Apple-notarized distribution
+
+For Apple-notarized distribution, use a consistently configured **Developer ID Application** identity:
 
 ```sh
 python3 scripts/app-signing.py configure distribution YOUR_DEVELOPER_ID_SHA1
@@ -45,7 +49,7 @@ ATLAS_SIGNING_MODE=distribution ./scripts/build-app.sh release
 
 This channel requires a valid Developer ID certificate, enables Hardened Runtime and secure timestamping, pins the resulting designated requirement/team, and rejects incompatible replacements. It cannot silently ship a development or ad-hoc signature. Preserve this configuration securely on the release signing machine across releases; protect the private key and use consistent signing policy in CI. Certificate renewal must still satisfy the previously pinned requirement.
 
-Developer ID signing is not the whole release process: notarization, stapling, updater feed/artifact signing and actual public N→N+1 tests remain required by DISTRIBUTION_UPDATE_PLAN.md. Do not distribute development or CI packages as production releases. The current local machine has a development identity; a Developer ID distribution identity has not been configured here.
+This optional channel additionally needs notarization and stapling. Do not distribute development or CI packages as production releases. The current local machine has a development identity; a Developer ID distribution identity has not been configured here.
 
 ## CI builds
 

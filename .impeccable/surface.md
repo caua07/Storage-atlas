@@ -41,3 +41,6 @@ Permission notice refinement: a 510pt maximum-width floating notice uses 18pt pa
 
 
 0.4.5 completion semantics: Saving index now covers the atomic snapshot commit only. Retention of old Atlas index rows runs separately after the scan ends; it never keeps the progress bar visible. The saved real result was restored and inspected at compact size with idle Scan finished. No visual layout/tokens changed. Full-volume coverage remains separate from completed traversal.
+
+
+Updates (0.5.1): a separate 440pt native update panel reuses the dark palette, Atlas mark and existing primary action style. It shows the release, download/verification progress and scan-safe restart state. The workspace geometry is unchanged. The real 0.5.0→0.5.1 prompt and restored workspace were inspected natively; broader updater error-state accessibility remains unverified.

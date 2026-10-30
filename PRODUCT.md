@@ -6,7 +6,7 @@
 Native macOS desktop application; local use, MIT open source.
 
 ## Stack
-Delegated implementation choice: SwiftUI + AppKit, Foundation filesystem APIs, SQLite metadata index, Swift Package Manager. macOS 14 or later. No server or third-party packages.
+Delegated implementation choice: SwiftUI + AppKit, Foundation filesystem APIs, SQLite metadata index, Swift Package Manager. macOS 14 or later. No server; Sparkle handles signed app updates.
 
 ## Users
 A programmer building large open-source and personal projects on a MacBook.
@@ -18,7 +18,7 @@ Provide a global, visual map of what occupies this Mac’s internal storage, wit
 The user wants a local developer utility modeled on the visual density of market heatmaps: a big storage map with floating navigation, filters/status, and optional collapsible inspection. The v0.4 request explicitly replaces the older solid chrome with a modern, minimal visual system and short, Reduce Motion-aware transitions. No marketing copy, permanent sidebar, or System Settings-style page structure. Global coverage must not require choosing a working directory. Exact toolchains are not yet supplied; classification remains deterministic evidence, not a claim about installed tools.
 
 ## Capabilities and Constraints
-- Local analysis; no network, accounts, telemetry, content upload, or content inspection.
+- Local analysis; no accounts, telemetry, content upload, or content inspection. Optional update checks contact GitHub.
 - Version one is read-only. No file deletion, shell cleanup commands, or privileged helper.
 - Startup System/Data volume-group scope by default, with verified topology, shared identity accounting, background progress, cancellation, permission gaps, and persistent metadata. Other mounted volumes and auxiliary APFS volumes are excluded. Historical folder scans retain their limited-scope label.
 - Rules explain their evidence and limits. Unknown files stay unknown.
@@ -56,7 +56,7 @@ The user's later explicit redesign request supersedes v0.3's appearance-preserva
 
 ## Planned distribution and updates
 
-The user subsequently requested a plan for sharing with friends, publishing open source on GitHub, and offering an in-app update popup on launch. [DISTRIBUTION_UPDATE_PLAN.md](DISTRIBUTION_UPDATE_PLAN.md) records the proposal: Sparkle 2, GitHub Releases/Pages, signed/notarized distribution, one-click updates and scan-safe restart. This is planning only; the current app still has no updater or runtime network service. Future network scope is limited to update distribution, with no scan-data upload, profiling or privileged scanner. Repo identity, Apple signing access, license and supported hardware remain to be settled before implementation/publication.
+Community releases are distributed as prebuilt Apple Silicon DMGs on GitHub. Sparkle offers signed updates on launch, with manual checking and an automatic-check preference. One click downloads, verifies, installs and restarts; an active scan finishes first. The index stays local. No landing page is included yet. See [release instructions](docs/RELEASING.md).
 
 
 ## Scan completion versus coverage
@@ -69,4 +69,4 @@ Scan completion is published after its atomic index commit. Obsolete index snaps
 
 ## App identity and permissions
 
-Atlas has no login, user accounts or auth server. Build-time code signing establishes its identity to macOS and is independent of the MIT license. Local builds use a pinned development signing certificate with verified permission continuity across updates. Public binary packaging requires a consistent Developer ID Application identity; actual public signing/notarization remains pending that setup. See docs/SIGNING.md.
+Atlas has no login, user accounts or auth server. Build-time code signing establishes its identity to macOS and is independent of the MIT license. Local builds use a pinned development signing certificate with verified permission continuity across updates. Community releases use a separate persistent self-signed identity. Apple Developer ID signing/notarization is an optional future channel; current downloads may need first-launch approval. See docs/SIGNING.md.

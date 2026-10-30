@@ -1,6 +1,6 @@
 # Verification — Storage Atlas
 
-Current local release: **0.4.6 / build 11**, certificate-signed for local development. This document summarizes checks without publishing private scan data. Detailed local screenshots, indexes and reports are excluded from Git.
+Current public release: **0.5.1 / build 21**, community-signed. The verified local development app remains **0.4.6 / build 11**. This document summarizes checks without publishing private scan data. Detailed local screenshots, indexes and reports are excluded from Git.
 
 ## Recorded checks
 
@@ -30,8 +30,8 @@ For isolated native checks, create a labeled synthetic fixture with `scripts/cre
 - No post-Full-Disk-Access global scan is certified. Some system restrictions, excluded APFS snapshots/volumes and filesystem accounting differences remain possible.
 - Finder/clipboard task completion, the Settings deep-link on every supported macOS, complete VoiceOver flows, formal contrast testing and authored motion timing are not fully certified.
 - Recorded navigation/search timings were individual observations, not p95 guarantees. Large indexes can make some queries noticeably slow.
-- The GitHub Actions workflow must pass on GitHub after publication; a local run does not certify hosted CI.
-- Signed/notarized distribution, universal binaries and in-app updates remain future work.
+- GitHub Actions passed after publication, including the v0.5.1 source and signed-feed commits.
+- Apple notarization, Intel binaries and a quarantined first launch on a second Mac remain unverified.
 
 ## Public-source preparation
 
@@ -80,3 +80,12 @@ With explicit action-time user approval, only Atlas's stale Full Disk Access ent
 Private evidence: `.impeccable/review/v0.4.6/signing-verification.json`, build/signing-policy logs and `.impeccable/review/v0.4.6/after-update/ux-verification.json`. The native normal/compact/coverage check completed at 20:22:54Z with readAccessState=available and readAccessNoticeVisible=false. Saved map restoration passed; no full global rescan was run. Old denied notes/map remain historical until refresh. This does not certify every protected path or attribute all missing volume use.
 
 Public distribution now requires the correct Developer ID Application certificate type, Hardened Runtime and timestamping; no Developer ID identity is currently available/configured here. Public certificate signing, notarization and an actual public-user update test remain unperformed. This is macOS publisher verification, not app login or a runtime auth service. No network/auth feature was added to Atlas.
+
+
+## Public release and actual in-app update — 0.5.1
+
+The MIT source and DMG/ZIP/checksums are public at https://github.com/caua07/Storage-atlas. All 65 core tests and six signing-policy tests passed before publication. GitHub macOS CI passed for the released source and feed. Community packaging uses a persistent self-signed certificate, and Sparkle 2.10.1 uses a separate Ed25519 key for archives and the feed; strict nested signature verification passes. Neither key nor private scan evidence was published.
+
+Native verification observed the update prompt and its Update and restart action. An isolated public 0.5.0/build 20 app fetched the public GitHub feed, downloaded the public 0.5.1 archive, installed it and automatically relaunched as build 21. Sparkle logs confirm valid feed/archive signatures. The same completed fixture snapshot survived: identical ID, 1,262 files and 46,166,016 allocated bytes. The restarted native workspace restored that snapshot. The updated app passes strict code-signature verification. Initial feed propagation took several minutes; a later manual check found the published update.
+
+The existing local development app/index and its Full Disk Access authorization were untouched. Active-scan installation deferral is covered by the coordinator checks, rather than a second large runtime scan. The popup fits within the existing compact workspace; exhaustive updater error-state/VoiceOver checks were not performed. Community-signature permission continuity and quarantined first launch on another Mac remain unverified. Community builds are not Apple-notarized. Older 0.4.x development builds need one manual community installation and may need authorization of the new identity. No landing page, server or additional release infrastructure was added.
