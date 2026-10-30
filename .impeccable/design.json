@@ -1,0 +1,596 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T16:04:56Z",
+  "title": "Design System: Storage Atlas",
+  "extensions": {
+    "platform": {
+      "name": "macOS 14+",
+      "implementation": "SwiftUI + AppKit",
+      "appearance": "dark",
+      "unit": "logical point",
+      "source": [
+        "Sources/StorageAtlas/AtlasStyle.swift",
+        "Sources/StorageAtlas/WorkspaceView.swift",
+        "Sources/StorageAtlas/TreemapCanvasView.swift",
+        "Sources/StorageAtlas/MapInspectorView.swift",
+        "Sources/StorageAtlas/FolderTreeView.swift",
+        "Sources/StorageAtlas/MapCoverageView.swift",
+        "Sources/StorageAtlas/AppModel.swift",
+        "Sources/StorageAtlas/StorageAtlasApp.swift",
+        "Sources/StorageCore/Treemap.swift"
+      ],
+      "previewNotice": "Portable HTML/CSS illustrations only; native geometry, focus, keyboard, disabled, selection and motion require actual macOS verification. Preview dimensions are not measured bytes."
+    },
+    "version": "0.4.5",
+    "authority": "The user authorized a modern minimal floating redesign, superseding v0.3 visual preservation. Read-only global-map scope and UX_SPEC flows remain binding.",
+    "colorTokens": {
+      "canvas": "#101214",
+      "chrome": "#1B1D1F",
+      "panel": "#222426",
+      "field": "#2B2E30",
+      "line": "#35383B",
+      "text": "#F4F5F5",
+      "secondary": "#B5B9BD",
+      "muted": "#969CA1",
+      "accent": "#9DD8D1",
+      "warning": "#E5C280",
+      "development": "#355C66",
+      "applications": "#3B526C",
+      "caches": "#4A5159",
+      "archives": "#6B5A42",
+      "media": "#3E6058",
+      "models": "#47635B",
+      "documents": "#66534E",
+      "other": "#354045",
+      "mixed": "#303336"
+    },
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas",
+        "value": "#101214"
+      },
+      "chrome": {
+        "role": "neutral",
+        "displayName": "Chrome",
+        "value": "#1B1D1F"
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "value": "#222426"
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Field",
+        "value": "#2B2E30"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "value": "#35383B"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text",
+        "value": "#F4F5F5"
+      },
+      "secondary": {
+        "role": "neutral",
+        "displayName": "Secondary",
+        "value": "#B5B9BD"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "value": "#969CA1"
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "value": "#9DD8D1"
+      },
+      "warning": {
+        "role": "neutral",
+        "displayName": "Warning",
+        "value": "#E5C280"
+      },
+      "development": {
+        "role": "secondary",
+        "displayName": "Development",
+        "value": "#355C66"
+      },
+      "applications": {
+        "role": "secondary",
+        "displayName": "Applications",
+        "value": "#3B526C"
+      },
+      "caches": {
+        "role": "secondary",
+        "displayName": "Caches",
+        "value": "#4A5159"
+      },
+      "archives": {
+        "role": "secondary",
+        "displayName": "Archives",
+        "value": "#6B5A42"
+      },
+      "media": {
+        "role": "secondary",
+        "displayName": "Media",
+        "value": "#3E6058"
+      },
+      "models": {
+        "role": "secondary",
+        "displayName": "Models",
+        "value": "#47635B"
+      },
+      "documents": {
+        "role": "secondary",
+        "displayName": "Documents",
+        "value": "#66534E"
+      },
+      "other": {
+        "role": "neutral",
+        "displayName": "Other",
+        "value": "#354045"
+      },
+      "mixed": {
+        "role": "neutral",
+        "displayName": "Mixed",
+        "value": "#303336"
+      }
+    },
+    "typographyMeta": {
+      "body": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "12pt",
+        "purpose": "Controls and explanatory prose"
+      },
+      "tile": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "11/13/18pt",
+        "purpose": "Fit-dependent semibold map names"
+      },
+      "tile-size": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "11/18/26pt",
+        "purpose": "Measured tabular allocation"
+      },
+      "label": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "11pt",
+        "purpose": "Supporting metadata and explicit shares"
+      },
+      "navigation": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "12pt",
+        "purpose": "Breadcrumbs and scope"
+      },
+      "tree-name": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "13pt",
+        "purpose": "Medium-weight native outline names"
+      },
+      "item-title": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "22pt",
+        "purpose": "Wrapping selectable inspector name"
+      },
+      "allocated-figure": {
+        "fontFamily": "SF Pro (system)",
+        "fontSize": "30pt",
+        "purpose": "Selected allocated bytes"
+      },
+      "path": {
+        "fontFamily": "SF Mono (system monospaced)",
+        "fontSize": "11pt",
+        "purpose": "Selectable full inspector paths"
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating",
+        "color": "#000000",
+        "opacity": 0.28,
+        "blurPt": 18,
+        "offsetPt": [
+          0,
+          8
+        ]
+      },
+      {
+        "name": "inspector",
+        "color": "#000000",
+        "opacity": 0.32,
+        "blurPt": 24,
+        "offsetPt": [
+          0,
+          10
+        ]
+      },
+      {
+        "name": "folder-annotation",
+        "color": "#000000",
+        "opacity": 0.24,
+        "blurPt": 7,
+        "offsetPt": [
+          0,
+          2
+        ]
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-hover",
+        "durationSeconds": 0.12,
+        "easing": "easeOut"
+      },
+      {
+        "name": "inspector",
+        "durationSeconds": 0.22,
+        "easing": "easeOut",
+        "effect": "slide and opacity"
+      },
+      {
+        "name": "folder-entry",
+        "durationSeconds": 0.18,
+        "easing": "easeOut",
+        "effect": "native backing-content fade; rectangle geometry updates immediately"
+      }
+    ],
+    "breakpoints": [],
+    "motionPolicy": "SwiftUI accessibilityReduceMotion and NSWorkspace accessibilityDisplayShouldReduceMotion govern effects; --reduce-motion application override was effective in native fixture. Normal real workflow records effective=false. No tile-size interpolation. Durations are source values; motion timing and every system preference path remain unverified.",
+    "nativeLayout": {
+      "defaultWindow": "1500 \u00d7 940pt",
+      "minimumWindow": "960 \u00d7 600pt",
+      "toolbar": "56pt floating; 12pt side and 8pt top inset; 16pt radius",
+      "navigation": "History, fit-adaptive breadcrumbs and actual displayed map allocation inside transport",
+      "search": "208 \u00d7 34pt; 11pt horizontal padding; 10pt radius",
+      "status": "32pt floating lower shelf; 12pt side and 6pt bottom inset; 12pt radius",
+      "drawer": "360pt overlay; 20pt right, 80pt top, 52pt bottom inset; 18pt radius; 54pt custom tab header; initially closed",
+      "coverage": "480 \u00d7 500pt native popover body, 24pt padding; actual visible _NSPopoverWindow content observed at 506 \u00d7 526pt",
+      "adaptation": "ViewThatFits: full breadcrumbs, ancestor menu plus last segment, then ancestor menu; category key gives way to menu. Same inspector at 960 \u00d7 600pt.",
+      "tree": "AppKit NSOutlineView; 48pt rows, 1pt gaps, 10pt indentation; 112pt number column; children in 200-record pages; stable viewport sizing with positive scroll/column/bounds fallback prevents reconstruction and depth overflow"
+    },
+    "mapGeometry": {
+      "area": "Measured allocated bytes; no area invented for zero or unknown",
+      "surface": "Single AppKit NSView; 12pt horizontal, 72pt top, 44pt bottom workspace insets",
+      "minimumTileArea": "20pt\u00b2",
+      "drawingInset": "2.5pt per edge at short side \u226524pt; 1.5pt at \u226510pt; at most 0.5pt below; underlying allocated rectangles unchanged",
+      "tileRadius": "10pt at painted short side \u226560pt; otherwise min(5pt, short side \u00d70.18)",
+      "groups": "Non-additive boundaries; 1.5pt inset, 12pt radius; chrome fill",
+      "selection": "2pt outline at 95% text; mint when map holds focus",
+      "hover": "1pt outline at 65% text, fill lifted 10% toward text",
+      "matches": "1pt outline at 38% text",
+      "nonmatches": "72% blend toward canvas; labels at 60%",
+      "mixedFolders": "Neutral sRGB 0.19/0.20/0.21, approximately #303336; category fill only for files or rule-backed artifacts",
+      "labelThresholds": {
+        "name": "Painted width \u226550pt and height \u226522pt, plus vertical fit",
+        "medium": "width >170pt and height >95pt",
+        "large": "width >300pt and height >180pt",
+        "size": "usable width \u226562pt plus vertical clearance",
+        "kind": "height >100pt and usable width >115pt plus vertical clearance",
+        "group": "width >190pt, height >90pt, area >28000pt\u00b2; 28pt annotation; collision omission"
+      },
+      "containedSelection": "1pt dashed mint at 85%, 4pt dash/3pt gap on nearest represented real container; explicit Contained in text",
+      "folderEntry": "Global bounded hierarchy preview; entered folders compare immediate children. Artifacts/packages remain aggregated until entry.",
+      "rollups": "Exact measured allocation and file count, explicitly labeled parent-scoped list",
+      "categoryPerformance": "Visible-frontier emphasis resolved from indexed matches; counts and allocation unchanged."
+    },
+    "accessibility": {
+      "canvas": "Labeled group directing users to Folders; no per-file canvas accessibility children",
+      "fallback": "Native NSOutlineView selection/expand/collapse with name, kind, size, valid parent share, and path labels; native results list with Inspect/Return and 200-record paging",
+      "preserve": [
+        "Native keyboard selection/expand/collapse",
+        "Labeled icon actions",
+        "Selectable full detail paths",
+        "Explicit measurement labels",
+        "Text alternatives to color",
+        "Reduce Motion source wiring"
+      ],
+      "unknown": "Direct inaccessible paths without measured allocation say Unknown size, not zero. Partial measured portions, scoped access notes, and valid parent-share denominators stay explicit."
+    },
+    "verification": {
+      "basis": "Historical v0.4 fixture workflow plus v0.4.3 saved completed real-global workflow, 56 core tests, native normal/compact access-guide captures and release 0.4.3/build 7 packaging. No post-permission scan.",
+      "status": "completed with documented runtime limits",
+      "evidencePaths": [
+        ".impeccable/review/v0.4/fixture/ux-verification.json",
+        ".impeccable/review/v0.4/real/ux-verification.json",
+        ".impeccable/review/v0.4.3/real/ux-verification.json",
+        ".impeccable/review/v0.4.3/access/ux-verification.json"
+      ],
+      "fixture": {
+        "recordedAt": "2026-10-30T14:59:43Z",
+        "result": "completed",
+        "scope": "folder",
+        "status": "complete",
+        "classificationVersion": 2,
+        "files": 1262,
+        "allocatedBytes": 46166016,
+        "mapBytes": 46166016,
+        "navigationMilliseconds": [
+          68.06790828704834,
+          68.4579610824585,
+          66.89989566802979
+        ],
+        "categoryMatchedPaths": 4,
+        "categoryQueryMilliseconds": 69.69296932220459,
+        "categoryMapReadyMilliseconds": 704.2289972305298,
+        "evidencePath": ".impeccable/review/v0.4/fixture/ux-verification.json",
+        "allRecordedFunctionalChecksPassed": true,
+        "nativeCaptures": 13,
+        "deepTreeNumbersFitNativeViewport": true,
+        "compactTreeNumbersFitNativeViewport": true,
+        "observedChecks": [
+          "breadcrumbSegmentsMatchPath",
+          "cancelPreservesMeasuredBaselineAndFocus",
+          "categoryHasNoQueryError",
+          "categoryResultsMatchEvidence",
+          "compactMapRemainsDominant",
+          "compactTreeDoesNotResizeMap",
+          "compactTreeFitsNativeContent",
+          "compactTreeNumbersFitNativeViewport",
+          "compositionCountsFilesOnce",
+          "deepTreeNumbersFitNativeViewport",
+          "deniedScopeKeepsUnknownState",
+          "explicitInspectOpensDetails",
+          "finalWorkspaceHasNoQueryError",
+          "focusedTreeRowIsVisible",
+          "forwardIsAvailable",
+          "globalSearchFindsExternalResult",
+          "hiddenFileNamesItsContainer",
+          "historyRestoresFiltersAndTree",
+          "historyRestoresTreePageLimit",
+          "historyRestoresTreeScrollAnchor",
+          "lateLookupDoesNotOverwriteDirectSelection",
+          "localSearchExcludesExternalResult",
+          "mapConservesSnapshot",
+          "mapSelectionPreservesOpenTree",
+          "mixedFolderHasMeasuredComposition",
+          "nativeCollapsePreservesFocus",
+          "nativeExpansionPreservesFocus",
+          "nativeTreeReturnEntersFolder",
+          "normalMapOccupiesAtLeast85Percent",
+          "rapidBackKeepsMapAndBreadcrumbAligned",
+          "reduceMotionOverrideIsEffective",
+          "refreshPreservesExistingFocusAndSelection",
+          "resultBackRestoresOriginAndQuery",
+          "resultOpensActualContainingFolder",
+          "returnToTreePreservesScope",
+          "treeDoesNotResizeMap",
+          "treeModeSurvivesNavigation",
+          "treePaginationBeyondThousand"
+        ],
+        "reduceMotionApplicationOverride": true,
+        "reduceMotionEffective": true,
+        "zeroAllocationTreeRecords": 400,
+        "note": "Explicit temporary completed folder fixture; not the contents of the Mac and not a completed real-global scan. This workflow preceded the coverage-popover capture addition."
+      },
+      "real": {
+        "note": "Private machine-specific measurements are excluded from public source; see VERIFICATION.md for validation scope."
+      },
+      "mapOccupancy": {
+        "normal": {
+          "mapSizePt": [
+            1416,
+            752
+          ],
+          "usableContentSizePt": [
+            1440,
+            868
+          ],
+          "rawContentSizePt": [
+            1440,
+            900
+          ],
+          "fractionOfUsableContent": 0.8519201228878648
+        },
+        "compact": {
+          "mapSizePt": [
+            936,
+            484
+          ],
+          "usableContentSizePt": [
+            960,
+            600
+          ],
+          "rawContentSizePt": [
+            960,
+            632
+          ],
+          "fractionOfUsableContent": 0.7865
+        },
+        "denominatorNote": "Usable content excludes the 32pt native title-bar region. Opening the panel does not resize the map."
+      },
+      "notAsserted": [
+        "Completed full-global scan",
+        "Completed-global cache restoration",
+        "Finder reveal desktop interaction",
+        "Clipboard desktop interaction",
+        "Full VoiceOver task navigation",
+        "Older macOS/Intel runtime",
+        "Formal contrast measurement",
+        "Animation timing or perceived smoothness",
+        "Every system Reduce Motion preference path",
+        "p95 or cold-cache performance"
+      ],
+      "historicalEvidence": {
+        "version": "0.3",
+        "fixturePath": ".impeccable/review/v0.3/fixture/ux-verification.json",
+        "realPath": ".impeccable/review/v0.3/real/ux-verification.json",
+        "note": "Historical values do not describe the current snapshot or certify the v0.4 surfaces."
+      },
+      "release": {
+        "version": "0.4.0",
+        "build": 4,
+        "coreTestsPassed": 54,
+        "releasePackaging": "passed"
+      },
+      "rasterAssets": "No raster artwork ships; actual native captures are verification evidence only.",
+      "scanActivityUpdate": {
+        "version": "0.4.1",
+        "build": 5,
+        "evidence": ".impeccable/review/v0.4.1/scan-progress-verification.json",
+        "basis": "Native CUA inspection of real global scanning at normal and compact width; isolated fixture reduced-motion, stop, cancellation and completion checks; release packaging, signature and plists."
+      },
+      "applicationIcon": {
+        "version": "0.4.2",
+        "build": 6,
+        "evidence": ".impeccable/review/v0.4.2/icon-verification.json",
+        "bundle": "dist/Storage Atlas 0.4.2.app",
+        "nativeFinderVerified": true,
+        "activeGlobalScanPreserved": true,
+        "dockRequiresUpdatedBundleLaunch": true
+      }
+    },
+    "invariants": [
+      "Stable measured denominator on selection/filter/panel",
+      "Allocated, logical, volume capacity and recoverable space are distinct",
+      "No invented area for zero or unknown",
+      "No ownership/recreatability inference",
+      "Legacy measured taxonomy preserved",
+      "Read-only; no scanned files modified"
+    ],
+    "accessGuidance": {
+      "notice": "Allow Atlas to read your storage; Set up access opens the first-viewport permission guide. Access is used only to read file information and measure sizes; no changes/deletions.",
+      "verification": ".impeccable/review/v0.4.4/persisted-access/ux-verification.json",
+      "permissionChanged": false,
+      "actionStyle": {
+        "name": "AtlasNoticeActionStyle",
+        "height": 34,
+        "radius": 9,
+        "fill": "#F4F5F5",
+        "text": "#101214",
+        "noticeMaxWidth": 510,
+        "evidence": ".impeccable/review/v0.4.3/access-button/ux-verification.json"
+      },
+      "trigger": "Only current read denial; no request for readable, unknown, checking or historical scope notes",
+      "persistence": "App UserDefaults stores last observation and dismissal; launch/activation rechecks actual access"
+    },
+    "indexMaintenance": {
+      "completion": "Atomic snapshot commit; retention runs after endScan",
+      "batchEntryLimit": 512,
+      "yieldMilliseconds": 50,
+      "evidence": ".impeccable/review/v0.4.5/saved-result/ux-verification.json",
+      "largeScaleThroughputMeasured": false
+    }
+  },
+  "components": [
+    {
+      "name": "Floating transport",
+      "kind": "custom",
+      "refersTo": "toolbar",
+      "description": "56pt transport with Atlas mark/name, history, breadcrumb/actual allocation, scoped search, named Folders and panel/refresh controls. 16pt radius and one neutral offset shadow."
+    },
+    {
+      "name": "Neutral native action",
+      "kind": "button",
+      "refersTo": "native-action",
+      "description": "32pt minimum transport action. Neutral field hover/active, 10pt radius and labeled SF Symbol; disabled opacity 35%."
+    },
+    {
+      "name": "Indexed-path search",
+      "kind": "input",
+      "refersTo": "search",
+      "description": "208 \u00d7 34pt native field with scoped menu, 180ms debounce, conditional clear/progress and Return to Results."
+    },
+    {
+      "name": "Map navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Back/Forward/Up and fit-adaptive ancestor breadcrumbs share the transport; On disk (or Folder snapshot) reports measured allocation, explicit measured zero or Unknown size where appropriate."
+    },
+    {
+      "name": "Floating filter/status shelf",
+      "kind": "custom",
+      "refersTo": "status",
+      "description": "32pt lower shelf shows native indeterminate scan activity with actual file/allocation counters while scanning, a stationary marker for Reduce Motion or stopping, and a compact category menu plus separate free bytes. Idle status/freshness return when the scan ends."
+    },
+    {
+      "name": "Category highlight",
+      "kind": "chip",
+      "refersTo": "status",
+      "description": "11pt labels and 6pt circular category marks; neutral active field. Focused-folder measured totals/percentages, with legacy Models disabled."
+    },
+    {
+      "name": "Measured tile",
+      "kind": "custom",
+      "refersTo": "tile",
+      "description": "Exact allocated layout region with bounded rounded painting and 5pt large-neighbor seams. 11/13/18pt names and 11/18/26pt size figures appear only when they fit."
+    },
+    {
+      "name": "Folder annotation",
+      "kind": "custom",
+      "refersTo": "tile",
+      "description": "28pt non-additive floating label, collision omitted; native 12pt name and 11pt size with small offset shadow."
+    },
+    {
+      "name": "Optional floating inspector",
+      "kind": "custom",
+      "refersTo": "drawer",
+      "description": "360pt optional overlay, 18pt corners and one offset shadow. 54pt header with custom neutral Folders/Results/Details tabs and close action. Opening preserves map geometry."
+    },
+    {
+      "name": "Native indexed Results",
+      "kind": "custom",
+      "refersTo": "drawer",
+      "description": "44pt minimum row content plus 4pt vertical insets, 12pt names/values and 11pt paths. Neutral selection; explicit loading/empty state, scope, count, paging and actions."
+    },
+    {
+      "name": "Native lazy folder tree",
+      "kind": "custom",
+      "refersTo": "drawer",
+      "description": "NSOutlineView with 48pt rows, 10pt indentation, 13pt names and 11pt metadata/numbers; 112pt numeric column. Native keyboard and disclosure remain; custom neutral selection/hover. Stable viewport sizing and actual native deep/compact share-frame containment checks pass after panel reconstruction."
+    },
+    {
+      "name": "Measurement details",
+      "kind": "custom",
+      "refersTo": "drawer",
+      "description": "22pt selectable item title, 11pt full monospaced path, 30pt allocated figure, distinct logical/date rows, exact scoped composition bars and recognition evidence."
+    },
+    {
+      "name": "Coverage and unknown states",
+      "kind": "custom",
+      "refersTo": "drawer",
+      "description": "Native 480 \u00d7 500pt body with 24pt padding; actual 506 \u00d7 526pt visible popover captured. 20pt heading, 28pt measured figure, distinct volume rows, 13pt section headings and explicit allocation/recovery/access limits."
+    },
+    {
+      "name": "Native application icon",
+      "kind": "custom",
+      "description": "Existing mint/neutral Atlas three-block mark on the dark rounded panel square; SVG master, native 16\u20131024px iconset and packaged AppIcon.icns. Finder icon/list views verified; the versioned build takes effect on next launch."
+    }
+  ],
+  "narrative": {
+    "northStar": "The storage map is the workspace",
+    "overview": "A continuous near-black measured field beneath floating neutral navigation, filter and inspection instruments. The user-authorized v0.4 redesign replaces v0.3 visual preservation while retaining global-map, read-only and UX_SPEC behavior. Native SF typography, AppKit outline/menus and exact allocated geometry remain authoritative.",
+    "keyCharacteristics": [
+      "One proportional map; no permanent sidebar or dashboard",
+      "Aligned floating neutral surfaces with one offset shadow",
+      "Larger direct map labels and distinct allocated measurements",
+      "Stable geometry through emphasis and inspection",
+      "Visible partial coverage, freshness and unknowns"
+    ],
+    "rules": [
+      {
+        "name": "Stable denominator",
+        "body": "Selection, category emphasis, search and opening the inspector never repartition or resize the measured map.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Keep the map dominant and auxiliary panels optional",
+      "Use actual bytes/counts and explicit denominators",
+      "Preserve native keyboard, selection and lazy scrolling",
+      "Keep zero, unknown, partial and legacy states explicit",
+      "Verify native normal and compact layout before claiming completion"
+    ],
+    "donts": [
+      "Restore a permanent five-destination sidebar or marketing header",
+      "Use gradients, glass or glow",
+      "Put category color on actions or infer cleanup safety",
+      "Interpolate measured rectangle size during navigation",
+      "Treat browser previews or source wiring as native runtime proof"
+    ]
+  }
+}

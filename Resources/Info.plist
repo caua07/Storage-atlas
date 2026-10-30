@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Storage Atlas</string>
+	<key>CFBundleExecutable</key>
+	<string>StorageAtlas</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>local.storageatlas.mac</string>
+	<key>CFBundleName</key>
+	<string>Storage Atlas</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.5.0</string>
+	<key>CFBundleVersion</key>
+	<string>20</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.0</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>Storage Atlas — personal local storage workbench.</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>SUAutomaticallyUpdate</key>
+	<false/>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUEnableInstallerLauncherService</key>
+	<false/>
+	<key>SUEnableJavaScript</key>
+	<false/>
+	<key>SUEnableSystemProfiling</key>
+	<false/>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/caua07/Storage-atlas/main/updates/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>CYgtfoW3QUyUEI0ESFjhS26PncyTwuXU5FkFEOTiwxU=</string>
+	<key>SURequireSignedFeed</key>
+	<true/>
+	<key>SUSignedFeedFailureExpirationInterval</key>
+	<integer>0</integer>
+	<key>SUVerifyUpdateBeforeExtraction</key>
+	<true/>
+</dict>
+</plist>

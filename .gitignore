@@ -1,0 +1,30 @@
+.build/
+dist/
+.DS_Store
+.impeccable/review/
+.impeccable/decisions/
+
+# Local metadata, credentials and scan evidence
+.swiftpm/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.log
+*.p12
+*.p8
+*.key
+*.mobileprovision
+*.provisionprofile
+
+# Generated icon representations (SVG and ICNS remain source assets)
+Resources/AppIcon.iconset/
+.signing/
+__pycache__/
+*.pyc

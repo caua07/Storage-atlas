@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Storage Atlas</title>
+  <desc>The Atlas treemap mark: one mint block and two neutral blocks on a dark rounded square.</desc>
+  <rect x="64" y="64" width="896" height="896" rx="200" fill="#222426"/>
+  <rect x="259" y="259" width="220" height="506" rx="66" fill="#9DD8D1"/>
+  <rect x="523" y="259" width="242" height="198" rx="66" fill="#F4F5F5"/>
+  <rect x="523" y="501" width="242" height="264" rx="66" fill="#B5B9BD" opacity="0.7"/>
+</svg>
