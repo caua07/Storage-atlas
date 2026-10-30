@@ -170,7 +170,7 @@ import StorageCore
         switch summary.status {
         case "cancelled": return "Cancelled · partial"
         case "interrupted", "scanning": return "Interrupted · partial"
-        case "complete": return summary.issueCount > 0 ? "Scan finished · \(summary.issueCount.formatted()) notes" : "Scan complete"
+        case "complete": return summary.issueCount > 0 ? "Scan finished · \(summary.issueCount.formatted()) \(summary.issueCount == 1 ? "note" : "notes")" : "Scan complete"
         default: return "\(summary.status.capitalized) · partial"
         }
     }
